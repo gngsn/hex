@@ -27,6 +27,9 @@ dependencies {
     // Database
     implementation("com.h2database:h2:2.1.214")
 
+    // Kotlin
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+
     // Testing tools
     testImplementation(kotlin("test"))
 }
