@@ -3,11 +3,11 @@ package com.gngsn.ditto.application.article.service;
 import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
 import com.gngsn.ditto.application.port.output.SaveArticlePort
 import com.gngsn.ditto.domain.Article
+import com.gngsn.ditto.support.UseCase
 import jakarta.transaction.Transactional
-import org.springframework.stereotype.Service
 
-@Service
-class ArticleService (
+@UseCase
+class SaveArticleService (
     val saveArticlePort: SaveArticlePort
 ) : SaveArticleUseCase {
 

@@ -1,21 +1,27 @@
 package com.gngsn.ditto.adapter.input.web
 
+import com.gngsn.ditto.application.article.usecase.GetArticleListUseCase
 import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
 import com.gngsn.ditto.domain.Article
 import com.gngsn.ditto.support.WebAdapter
 import jakarta.validation.Valid
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @WebAdapter
 @RestController
 @RequestMapping("/blog")
 class ArticleController(
-    val saveArticleUseCase: SaveArticleUseCase
+    val saveArticleUseCase: SaveArticleUseCase,
+    val getArticleListUseCase: GetArticleListUseCase
 ) {
+
+    @GetMapping
+    fun get(@RequestParam pageable: Pageable): ResponseEntity<Page<Article>> {
+        return ResponseEntity.ok(getArticleListUseCase.execute(pageable))
+    }
 
     @PostMapping("/article")
     fun post(@Valid @RequestBody article: Article): ResponseEntity<String>{

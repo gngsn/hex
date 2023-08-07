@@ -1,6 +1,6 @@
 package com.gngsn.ditto.domain;
 
-import com.gngsn.ditto.adapter.output.entity.ArticleEntity
+import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
 import jakarta.validation.constraints.NotBlank
 import java.time.LocalDateTime
 
@@ -12,6 +12,7 @@ data class Article (
     @field:NotBlank(message = "'content' must not be blank!")  val content: String,
     @field:NotBlank(message = "'author' must not be blank!")  val author: String,
 ) {
+
     fun toEntity(): ArticleEntity {
         return ArticleEntity(
             null,
@@ -20,6 +21,6 @@ data class Article (
             this.author,
             LocalDateTime.now(),
             LocalDateTime.now()
-        );
+        )
     }
 }

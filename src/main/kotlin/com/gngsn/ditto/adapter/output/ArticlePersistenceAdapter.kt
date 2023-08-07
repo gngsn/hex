@@ -1,16 +1,24 @@
 package com.gngsn.ditto.adapter.output;
 
-import com.gngsn.ditto.adapter.output.repository.ArticleRepository
+import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
+import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
+import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
+import com.gngsn.ditto.application.port.output.GetArticleListPort
 import com.gngsn.ditto.application.port.output.SaveArticlePort
 import com.gngsn.ditto.domain.Article
 import com.gngsn.ditto.support.Adapter
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 
 @Adapter
 class ArticlePersistenceAdapter(
-    private val articleRepository: ArticleRepository
-): SaveArticlePort {
-
+    private val articleMasterRepository: ArticleMasterRepository,
+    private val articleSlaveRepository: ArticleSlaveRepository
+): SaveArticlePort, GetArticleListPort {
     override fun save(article: Article) {
-        articleRepository.save(article.toEntity())
+        articleMasterRepository.save(article.toEntity())
+    }
+    override fun findAll(pageable: Pageable): Page<ArticleEntity> {
+        return articleSlaveRepository.findAll(pageable)
     }
 }
