@@ -15,9 +15,11 @@ class ArticlePersistenceAdapter(
     private val articleMasterRepository: ArticleMasterRepository,
     private val articleSlaveRepository: ArticleSlaveRepository
 ): SaveArticlePort, GetArticleListPort {
+
     override fun save(article: Article) {
         articleMasterRepository.save(article.toEntity())
     }
+
     override fun findAll(pageable: Pageable): Page<ArticleEntity> {
         return articleSlaveRepository.findAll(pageable)
     }
