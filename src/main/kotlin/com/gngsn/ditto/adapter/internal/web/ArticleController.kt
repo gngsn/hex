@@ -20,12 +20,12 @@ class ArticleController(
 
     @GetMapping
     fun get(@RequestParam pageable: Pageable): ResponseEntity<Page<Article>> {
-        return ResponseEntity.ok(getArticleListUseCase.execute(pageable))
+        return ResponseEntity.ok(getArticleListUseCase.getList(pageable))
     }
 
     @PostMapping("/article")
     fun post(@Valid @RequestBody article: Article): ResponseEntity<String>{
-        saveArticleUseCase.execute(article)
+        saveArticleUseCase.save(article)
         return ResponseEntity.ok("The request successes")
     }
 }
