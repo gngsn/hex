@@ -1,4 +1,4 @@
-package com.gngsn.ditto.adapter.output.persistence.entity
+package com.gngsn.ditto.adapter.external.persistence.entity
 
 import jakarta.persistence.*
 import java.time.LocalDateTime

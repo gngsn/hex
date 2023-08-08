@@ -1,4 +1,4 @@
-package com.gngsn.ditto.adapter.input.web
+package com.gngsn.ditto.adapter.internal.web
 
 import com.gngsn.ditto.application.article.usecase.GetArticleListUseCase
 import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
