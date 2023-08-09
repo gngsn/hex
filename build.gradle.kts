@@ -1,14 +1,16 @@
 plugins {
-    val kotlinVersion = "1.6.21"
+    val kotlinVersion = "1.8.21"
 
     kotlin("jvm") version "1.8.20"
-    kotlin("kapt") version kotlinVersion  // KAPT(Kotlin Annotation Processing Tool)
     kotlin("plugin.spring") version "1.3.61"
     kotlin("plugin.jpa") version "1.9.0"
+    kotlin("kapt") version kotlinVersion
 
     id("org.springframework.boot") version "3.0.4"
     id("io.spring.dependency-management") version "1.1.2"
 }
+
+val queryDslVersion = "5.0.0"
 
 group = "com.gngsn"
 version = "0.0.1"
@@ -29,10 +31,10 @@ dependencies {
 
     // Database
     implementation("com.h2database:h2:2.1.214")
-    implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
-//    implementation("com.querydsl:querydsl-apt:5.0.0:jpa")
-    kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
-    annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jpa")
+
+    // querydsl
+    implementation ("com.querydsl:querydsl-jpa:$queryDslVersion:jakarta")
+    kapt("com.querydsl:querydsl-apt:$queryDslVersion:jakarta")
 
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-reflect")
