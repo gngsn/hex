@@ -1,6 +1,6 @@
 package com.gngsn.ditto.adapter.internal.web
 
-import com.gngsn.ditto.application.article.usecase.GetArticleListUseCase
+import com.gngsn.ditto.application.article.usecase.GetArticleUseCase
 import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
 import com.gngsn.ditto.domain.Article
 import com.gngsn.ditto.support.WebAdapter
@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/blog")
 class ArticleController(
     val saveArticleUseCase: SaveArticleUseCase,
-    val getArticleListUseCase: GetArticleListUseCase
+    val getArticleUseCase: GetArticleUseCase
 ) {
 
     @GetMapping
     fun get(@RequestParam pageable: Pageable): ResponseEntity<Page<Article>> {
-        return ResponseEntity.ok(getArticleListUseCase.getList(pageable))
+        return ResponseEntity.ok(getArticleUseCase.getList(pageable))
     }
 
-    @PostMapping("/article")
+    @PostMapping("article")
     fun post(@Valid @RequestBody article: Article): ResponseEntity<String>{
         saveArticleUseCase.save(article)
         return ResponseEntity.ok("The request successes")

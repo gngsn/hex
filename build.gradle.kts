@@ -40,7 +40,15 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     // Testing tools
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.2") {
+        exclude("org.junit.vintage", "junit-vintage-engine")
+        exclude("org.mockito", "mockito-core")
+    }
+    testImplementation("org.springframework.cloud:spring-cloud-contract-wiremock")
     testImplementation(kotlin("test"))
+    testImplementation("com.tngtech.archunit:archunit-junit5:1.0.0")
+    testImplementation("com.ninja-squad:springmockk:4.0.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
 }
 
 tasks.test {
