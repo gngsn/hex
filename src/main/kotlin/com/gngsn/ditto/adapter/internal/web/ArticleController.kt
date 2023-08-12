@@ -3,10 +3,9 @@ package com.gngsn.ditto.adapter.internal.web
 import com.gngsn.ditto.application.article.usecase.GetArticleUseCase
 import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
 import com.gngsn.ditto.domain.Article
+import com.gngsn.ditto.shared.model.PagingCommand
 import com.gngsn.ditto.support.WebAdapter
 import jakarta.validation.Valid
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -19,8 +18,8 @@ class ArticleController(
 ) {
 
     @GetMapping
-    fun get(@RequestParam pageable: Pageable): ResponseEntity<Page<Article>> {
-        return ResponseEntity.ok(getArticleUseCase.getList(pageable))
+    fun get(@RequestParam pagingCommand: PagingCommand): ResponseEntity<List<Article>> {
+        return ResponseEntity.ok(getArticleUseCase.getList(pagingCommand))
     }
 
     @PostMapping("article")

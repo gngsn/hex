@@ -1,9 +1,8 @@
 package com.gngsn.ditto.application.article.usecase
 
 import com.gngsn.ditto.domain.Article
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
+import com.gngsn.ditto.shared.model.PagingCommand
 
 interface GetArticleUseCase {
-    fun getList(pageable: Pageable): Page<Article>
+    fun getList(pagingCommand: PagingCommand): List<Article>
 }

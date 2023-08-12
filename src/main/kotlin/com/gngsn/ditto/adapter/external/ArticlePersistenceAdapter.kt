@@ -6,9 +6,8 @@ import com.gngsn.ditto.adapter.external.persistence.repository.ArticleSlaveRepos
 import com.gngsn.ditto.application.port.output.GetArticleListPort
 import com.gngsn.ditto.application.port.output.SaveArticlePort
 import com.gngsn.ditto.domain.Article
+import com.gngsn.ditto.shared.model.PagingCommand
 import com.gngsn.ditto.support.Adapter
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
 
 @Adapter
 class ArticlePersistenceAdapter(
@@ -20,7 +19,9 @@ class ArticlePersistenceAdapter(
         articleMasterRepository.save(article.toEntity())
     }
 
-    override fun findAll(pageable: Pageable): Page<ArticleEntity> {
-        return articleSlaveRepository.findAll(pageable)
+    override fun findAll(pagingCommand: PagingCommand): List<ArticleEntity> {
+        return articleSlaveRepository.findAllByAuthorWithPaging("",
+            pagingCommand.page * pagingCommand.size,
+            pagingCommand.size)
     }
 }

@@ -5,10 +5,9 @@ import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
 import com.gngsn.ditto.application.port.output.GetArticleListPort
 import com.gngsn.ditto.application.port.output.SaveArticlePort
 import com.gngsn.ditto.domain.Article
+import com.gngsn.ditto.shared.model.PagingCommand
 import com.gngsn.ditto.support.UseCase
 import jakarta.transaction.Transactional
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
 
 @UseCase
 class ArticleService (
@@ -16,8 +15,8 @@ class ArticleService (
     val saveArticlePort: SaveArticlePort
 ) : GetArticleUseCase, SaveArticleUseCase {
 
-    override fun getList(pageable: Pageable): Page<Article> {
-        return getArticleListPort.findAll(pageable).map { // FIXME
+    override fun getList(pagingCommand: PagingCommand): List<Article> {
+        return getArticleListPort.findAll(pagingCommand).map { // FIXME
             Article(
                 it.title,
                 it.content,
