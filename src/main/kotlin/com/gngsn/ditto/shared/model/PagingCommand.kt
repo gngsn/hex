@@ -1,6 +1,6 @@
 package com.gngsn.ditto.shared.model
 
-class PagingCommand(
+data class PagingCommand(
     val page: Long = 0,
     val size: Long = 10
 )

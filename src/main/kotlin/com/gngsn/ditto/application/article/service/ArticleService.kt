@@ -1,5 +1,6 @@
 package com.gngsn.ditto.application.article.service;
 
+import com.gngsn.ditto.application.article.mapper.toVO
 import com.gngsn.ditto.application.article.usecase.GetArticleUseCase
 import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
 import com.gngsn.ditto.application.port.output.GetArticleListPort
@@ -16,13 +17,7 @@ class ArticleService (
 ) : GetArticleUseCase, SaveArticleUseCase {
 
     override fun getList(pagingCommand: PagingCommand): List<Article> {
-        return getArticleListPort.findAll(pagingCommand).map { // FIXME
-            Article(
-                it.title,
-                it.content,
-                it.author,
-            )
-        }
+        return getArticleListPort.findAll(pagingCommand).map { it.toVO() }
     }
 
     @Transactional

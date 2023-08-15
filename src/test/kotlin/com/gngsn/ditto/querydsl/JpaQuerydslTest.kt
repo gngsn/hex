@@ -1,9 +1,9 @@
 package com.gngsn.ditto.querydsl
 
-import com.gngsn.ditto.adapter.external.persistence.entity.ArticleEntity
-import com.gngsn.ditto.adapter.external.persistence.entity.QArticleEntity.articleEntity
-import com.gngsn.ditto.adapter.external.persistence.repository.ArticleMasterRepository
-import com.gngsn.ditto.adapter.external.persistence.repository.ArticleSlaveRepository
+import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
+import com.gngsn.ditto.adapter.output.persistence.entity.QArticleEntity.articleEntity
+import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
+import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
 import com.querydsl.jpa.impl.JPAQueryFactory
 import io.mockk.mockk
 import jakarta.persistence.EntityManager

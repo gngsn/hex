@@ -18,7 +18,7 @@ class ArticleController(
 ) {
 
     @GetMapping
-    fun get(@RequestParam pagingCommand: PagingCommand): ResponseEntity<List<Article>> {
+    fun get(pagingCommand: PagingCommand): ResponseEntity<List<Article>> {
         return ResponseEntity.ok(getArticleUseCase.getList(pagingCommand))
     }
 
