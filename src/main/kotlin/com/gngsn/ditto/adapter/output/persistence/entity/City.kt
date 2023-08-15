@@ -1,4 +1,4 @@
-package com.gngsn.ditto.adapter.external.persistence.entity
+package com.gngsn.ditto.adapter.output.persistence.entity
 
 import jakarta.persistence.*
 

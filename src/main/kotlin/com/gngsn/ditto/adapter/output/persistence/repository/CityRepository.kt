@@ -1,6 +1,6 @@
-package com.gngsn.ditto.adapter.external.persistence.repository
+package com.gngsn.ditto.adapter.output.persistence.repository
 
-import com.gngsn.ditto.adapter.external.persistence.entity.City
+import com.gngsn.ditto.adapter.output.persistence.entity.City
 import org.springframework.data.querydsl.QuerydslPredicateExecutor
 import org.springframework.data.repository.CrudRepository
 

@@ -1,8 +1,8 @@
-package com.gngsn.ditto.adapter.external;
+package com.gngsn.ditto.adapter.output;
 
-import com.gngsn.ditto.adapter.external.persistence.entity.ArticleEntity
-import com.gngsn.ditto.adapter.external.persistence.repository.ArticleMasterRepository
-import com.gngsn.ditto.adapter.external.persistence.repository.ArticleSlaveRepository
+import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
+import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
+import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
 import com.gngsn.ditto.application.port.output.GetArticleListPort
 import com.gngsn.ditto.application.port.output.SaveArticlePort
 import com.gngsn.ditto.domain.Article

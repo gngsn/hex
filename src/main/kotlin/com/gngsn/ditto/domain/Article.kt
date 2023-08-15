@@ -1,6 +1,6 @@
 package com.gngsn.ditto.domain;
 
-import com.gngsn.ditto.adapter.external.persistence.entity.ArticleEntity
+import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
 import jakarta.validation.constraints.NotBlank
 import java.time.LocalDateTime
 

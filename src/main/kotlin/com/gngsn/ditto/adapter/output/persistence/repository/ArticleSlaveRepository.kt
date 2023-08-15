@@ -1,7 +1,7 @@
-package com.gngsn.ditto.adapter.external.persistence.repository
+package com.gngsn.ditto.adapter.output.persistence.repository
 
-import com.gngsn.ditto.adapter.external.persistence.entity.ArticleEntity
-import com.gngsn.ditto.adapter.external.persistence.entity.QArticleEntity.articleEntity
+import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
+import com.gngsn.ditto.adapter.output.persistence.entity.QArticleEntity.articleEntity
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Repository
 
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository
 class ArticleSlaveRepository(
     private val jpaQueryFactory: JPAQueryFactory
 ) {
-    fun find(author: String) {
-        val fetchArticle: ArticleEntity? = jpaQueryFactory
+    fun find(author: String): ArticleEntity? {
+        return jpaQueryFactory
             .selectFrom(articleEntity)
             .where(articleEntity.author.eq(author))
             .fetchOne()
