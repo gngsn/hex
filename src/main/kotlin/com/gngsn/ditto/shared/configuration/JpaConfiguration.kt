@@ -1,4 +1,4 @@
-package com.gngsn.ditto.configuration;
+package com.gngsn.ditto.shared.configuration;
 
 //@Configuration
 //class JpaConfiguration {

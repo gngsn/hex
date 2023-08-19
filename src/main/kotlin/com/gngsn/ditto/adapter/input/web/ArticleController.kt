@@ -4,7 +4,7 @@ import com.gngsn.ditto.application.article.usecase.GetArticleUseCase
 import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
 import com.gngsn.ditto.domain.Article
 import com.gngsn.ditto.shared.model.PagingCommand
-import com.gngsn.ditto.support.WebAdapter
+import com.gngsn.ditto.shared.support.WebAdapter
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

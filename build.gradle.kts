@@ -26,11 +26,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     // Spring Cloud modules
-    implementation(platform("org.springframework.cloud:spring-cloud-dependencies:2022.0.1"))
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+//    implementation(platform("org.springframework.cloud:spring-cloud-dependencies:2022.0.1"))
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.0.1")
 
     // Database
-    implementation("com.h2database:h2:2.1.214")
+    implementation("org.postgresql:postgresql")
+    implementation("org.flywaydb:flyway-core")
 
     // querydsl
     implementation ("com.querydsl:querydsl-jpa:$queryDslVersion:jakarta")
@@ -40,15 +41,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     // Testing tools
-    testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.2") {
-        exclude("org.junit.vintage", "junit-vintage-engine")
-        exclude("org.mockito", "mockito-core")
-    }
-    testImplementation("org.springframework.cloud:spring-cloud-contract-wiremock")
     testImplementation(kotlin("test"))
-    testImplementation("com.tngtech.archunit:archunit-junit5:1.0.0")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+//    testImplementation("org.springframework.cloud:spring-cloud-contract-wiremock")
     testImplementation("com.ninja-squad:springmockk:4.0.2")
+    testImplementation("com.tngtech.archunit:archunit-junit5:1.0.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+    testImplementation("org.testcontainers:postgresql")
 }
 
 tasks.test {

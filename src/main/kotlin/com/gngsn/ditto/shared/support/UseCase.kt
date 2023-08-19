@@ -1,4 +1,4 @@
-package com.gngsn.ditto.support
+package com.gngsn.ditto.shared.support
 
 import org.springframework.stereotype.Component
 

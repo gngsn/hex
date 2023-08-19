@@ -1,4 +1,4 @@
-package com.gngsn.ditto.support
+package com.gngsn.ditto.shared.support
 
 import org.springframework.stereotype.Component
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
 @Component
-annotation class WebAdapter(
+annotation class Adapter(
 
     /**
      * The value may indicate a suggestion for a logical component name,

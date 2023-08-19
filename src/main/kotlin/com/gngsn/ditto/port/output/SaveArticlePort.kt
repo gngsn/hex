@@ -1,4 +1,4 @@
-package com.gngsn.ditto.application.port.output;
+package com.gngsn.ditto.port.output;
 
 import com.gngsn.ditto.domain.Article
 

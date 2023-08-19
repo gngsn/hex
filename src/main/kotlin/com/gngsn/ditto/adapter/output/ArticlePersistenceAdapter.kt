@@ -3,11 +3,11 @@ package com.gngsn.ditto.adapter.output;
 import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
-import com.gngsn.ditto.application.port.output.GetArticleListPort
-import com.gngsn.ditto.application.port.output.SaveArticlePort
 import com.gngsn.ditto.domain.Article
+import com.gngsn.ditto.port.output.GetArticleListPort
+import com.gngsn.ditto.port.output.SaveArticlePort
 import com.gngsn.ditto.shared.model.PagingCommand
-import com.gngsn.ditto.support.Adapter
+import com.gngsn.ditto.shared.support.Adapter
 
 @Adapter
 class ArticlePersistenceAdapter(
