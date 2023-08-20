@@ -1,6 +1,6 @@
 package com.gngsn.ditto.adapter.external
 
-import com.gngsn.ditto.adapter.output.ArticlePersistenceAdapter
+import com.gngsn.ditto.adapter.output.persistence.ArticlePersistenceAdapter
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
 import com.gngsn.ditto.domain.Article
@@ -30,7 +30,7 @@ class JpaQuerydslTest {
             articlePersistenceAdapter.save(article)
         verify {
             val list = articlePersistenceAdapter.findAll(PagingCommand())
-        list.get(0).equals(article)
+            list.get(0).equals(article)
         }
     }
 }

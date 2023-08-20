@@ -1,6 +1,6 @@
 package com.gngsn.ditto.adapter.input.web
 
-import com.gngsn.ditto.adapter.output.ArticlePersistenceAdapter
+import com.gngsn.ditto.adapter.output.persistence.ArticlePersistenceAdapter
 import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
