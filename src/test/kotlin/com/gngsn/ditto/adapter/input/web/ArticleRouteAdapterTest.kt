@@ -5,7 +5,7 @@ import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
 import com.gngsn.ditto.application.article.mapper.toVO
-import com.gngsn.ditto.application.article.service.ArticleService
+import com.gngsn.ditto.application.article.usecase.GetArticleListUseCase
 import com.gngsn.ditto.shared.model.PagingCommand
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import java.time.LocalDateTime
 
 @WebMvcTest
-class ArticleControllerTest(@Autowired val mockMvc: MockMvc) {
+class ArticleRouteAdapterTest(@Autowired val mockMvc: MockMvc) {
 
     @MockkBean
     lateinit var articleMasterRepository: ArticleMasterRepository
@@ -32,7 +32,7 @@ class ArticleControllerTest(@Autowired val mockMvc: MockMvc) {
     lateinit var articlePersistenceAdapter: ArticlePersistenceAdapter
 
     @MockkBean
-    lateinit var articleService: ArticleService
+    lateinit var getArticleListUseCase: GetArticleListUseCase
 
     @BeforeEach
     fun setup() {
@@ -41,7 +41,7 @@ class ArticleControllerTest(@Autowired val mockMvc: MockMvc) {
         val article3 = ArticleEntity( null, "새로운 게시글 3", "내용입니다", "sunny", LocalDateTime.now(), LocalDateTime.now())
 
         every {
-            articleService.getList(PagingCommand())
+            getArticleListUseCase.execute(PagingCommand())
         } returns listOf(article1, article2, article3).map { it.toVO() }
     }
 

@@ -1,30 +1,37 @@
 package com.gngsn.ditto.adapter.input.web
 
-import com.gngsn.ditto.application.article.usecase.GetArticleUseCase
+import com.gngsn.ditto.application.article.usecase.GetArticleListFromFilesCase
+import com.gngsn.ditto.application.article.usecase.GetArticleListUseCase
 import com.gngsn.ditto.application.article.usecase.SaveArticleUseCase
 import com.gngsn.ditto.domain.Article
 import com.gngsn.ditto.shared.model.PagingCommand
-import com.gngsn.ditto.shared.support.WebAdapter
+import com.gngsn.ditto.shared.support.Adapter
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
-@WebAdapter
+@Adapter
 @RestController
 @RequestMapping("/blog")
-class ArticleController(
+class ArticleRouteAdapter(
     val saveArticleUseCase: SaveArticleUseCase,
-    val getArticleUseCase: GetArticleUseCase
+    val getArticleListUseCase: GetArticleListUseCase,
+    val getArticleListFromFilesCase: GetArticleListFromFilesCase,
 ) {
 
     @GetMapping
     fun get(pagingCommand: PagingCommand): ResponseEntity<List<Article>> {
-        return ResponseEntity.ok(getArticleUseCase.getList(pagingCommand))
+        return ResponseEntity.ok(getArticleListUseCase.execute(pagingCommand))
+    }
+
+    @GetMapping("files")
+    fun getAllFiles(): ResponseEntity<List<Article>> {
+        return ResponseEntity.ok(getArticleListFromFilesCase.execute())
     }
 
     @PostMapping("article")
     fun post(@Valid @RequestBody article: Article): ResponseEntity<String>{
-        saveArticleUseCase.save(article)
+        saveArticleUseCase.execute(article)
         return ResponseEntity.ok("The request successes")
     }
 }

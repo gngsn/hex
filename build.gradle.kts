@@ -26,7 +26,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     // Spring Cloud modules
-//    implementation(platform("org.springframework.cloud:spring-cloud-dependencies:2022.0.1"))
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.0.1")
 
     // Database
@@ -43,11 +42,10 @@ dependencies {
     // Testing tools
     testImplementation(kotlin("test"))
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-//    testImplementation("org.springframework.cloud:spring-cloud-contract-wiremock")
     testImplementation("com.ninja-squad:springmockk:4.0.2")
     testImplementation("com.tngtech.archunit:archunit-junit5:1.0.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
-    testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.testcontainers:postgresql:1.18.0")
 }
 
 tasks.test {
