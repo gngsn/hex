@@ -23,19 +23,3 @@ spring:
                         url: https://api.github.com
                         requestInterceptors:
                             - com.gngsn.ditto.adapter.output.interceptor.GithubRequestHeaderInterceptor
-#                        errorDecoder: com.example.SimpleErrorDecoder
-#                        retryer: com.example.SimpleRetryer
-#                        defaultQueryParameters:m
-#                            query: queryValue
-#                        defaultRequestHeaders:
-#                            header: headerValue
-#                        responseInterceptor: com.example.BazResponseInterceptor
-#                        dismiss404: false
-#                        encoder: com.example.SimpleEncoder
-#                        decoder: com.example.SimpleDecoder
-#                        contract: com.example.SimpleContract
-#                        capabilities:
-#                            - com.example.FooCapability
-#                            - com.example.BarCapability
-#                        queryMapEncoder: com.example.SimpleQueryMapEncoder
-#                        micrometer.enabled: false
