@@ -1,5 +1,6 @@
 package com.gngsn.ditto.adapter.output.persistence;
 
+import com.gngsn.ditto.adapter.extension.toEntity
 import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository

@@ -1,6 +1,6 @@
 package com.gngsn.ditto.application.article.usecase
 
-import com.gngsn.ditto.application.article.extension.toVO
+import com.gngsn.ditto.adapter.extension.toVO
 import com.gngsn.ditto.domain.Article
 import com.gngsn.ditto.port.output.ArticlePersistencePort
 import com.gngsn.ditto.shared.model.PagingCommand
