@@ -1,4 +1,4 @@
-package com.gngsn.ditto.application.article.mapper
+package com.gngsn.ditto.adapter.extension
 
 import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
 import com.gngsn.ditto.domain.Article

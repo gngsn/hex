@@ -4,7 +4,7 @@ import com.gngsn.ditto.adapter.output.persistence.ArticlePersistenceAdapter
 import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterRepository
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
-import com.gngsn.ditto.application.article.mapper.toVO
+import com.gngsn.ditto.application.article.extension.toVO
 import com.gngsn.ditto.application.article.usecase.GetArticleListUseCase
 import com.gngsn.ditto.shared.model.PagingCommand
 import com.ninjasquad.springmockk.MockkBean
