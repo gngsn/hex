@@ -1,6 +1,7 @@
 # Ditto
 
 ### Skill Set
+
 - JDK 17, Kotlin
 - Spring Boot 3, MySQL, JPA
 - Gradle 8
@@ -16,6 +17,15 @@ $ export POSTGRES_PASSWORD=<<postgres_password>>
 
 ```bash
 $ docker-compose up --detach
+```
+
+<br/>
+
+**Create DB Schema**
+
+```bash
+$ docker exec -it <<container_id>> bash
+postgres=# CREATE DATABASE hex;
 ```
 
 
