@@ -1,25 +1,25 @@
 spring:
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/ditto
-        username: postgres
-        password: postgres
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/hex
+    username: postgres
+    password: postgres
 
-    jpa:
-        hibernate:
-            database-platform: org.hibernate.dialect.PostgreSQL94Dialect
-            format_sql: true
-            ddl-auto: update
+  jpa:
+    hibernate:
+      database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+      format_sql: true
+      ddl-auto: update
 
-    cloud:
-        openfeign:
-            client:
-                config:
-                    default:
-                        connectTimeout: 5000
-                        readTimeout: 5000
-                        loggerLevel: full
-                    github:
-                        url: https://api.github.com
-                        requestInterceptors:
-                            - com.gngsn.ditto.adapter.output.interceptor.GithubRequestHeaderInterceptor
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 5000
+            readTimeout: 5000
+            loggerLevel: full
+          github:
+            url: https://api.github.com
+            requestInterceptors:
+              - com.gngsn.ditto.adapter.output.interceptor.GithubRequestHeaderInterceptor
