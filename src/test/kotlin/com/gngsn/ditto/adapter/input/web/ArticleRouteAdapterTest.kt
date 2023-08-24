@@ -40,7 +40,7 @@ class ArticleRouteAdapterTest(@Autowired val mockMvc: MockMvc) {
         val article3 = ArticleEntity(null, "새로운 게시글 3", "내용입니다", "sunny", LocalDateTime.now(), LocalDateTime.now())
 
         every {
-            getArticleListUseCase.execute(PagingCommand())
+            getArticleListUseCase.get(PagingCommand())
         } returns listOf(article1, article2, article3).map { it.toVO() }
     }
 

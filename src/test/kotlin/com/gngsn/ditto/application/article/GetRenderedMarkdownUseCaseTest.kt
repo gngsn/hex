@@ -1,8 +1,8 @@
-package com.gngsn.ditto.application.article.usecase
+package com.gngsn.ditto.application.article
 
 import com.gngsn.ditto.application.markdown.GetRenderedMarkdownUseCase
-import com.gngsn.ditto.port.input.LocalFileReadPort
-import com.gngsn.ditto.port.output.GithubFeignClientPort
+import com.gngsn.ditto.port.output.ReadFileOutputPort
+import com.gngsn.ditto.port.output.RenderToHtmlOutPort
 import io.mockk.MockKAnnotations
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -11,8 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 class GetRenderedMarkdownUseCaseTest(
-    @Autowired val localFileReadPort: LocalFileReadPort,
-    @Autowired val githubFeignClientPort: GithubFeignClientPort,
+    @Autowired val readFileOutputPort: ReadFileOutputPort,
+    @Autowired val renderToHtmlOutPort: RenderToHtmlOutPort,
     @Autowired val getRenderedMarkdownUseCase: GetRenderedMarkdownUseCase
 ) {
 

@@ -1,7 +1,8 @@
-package com.gngsn.ditto.application.article.usecase
+package com.gngsn.ditto.application.article
 
 import com.gngsn.ditto.adapter.output.persistence.entity.ArticleEntity
-import com.gngsn.ditto.port.output.ArticlePersistencePort
+import com.gngsn.ditto.application.article.usecase.GetArticleListUseCase
+import com.gngsn.ditto.port.output.ReadArticleOutPort
 import com.gngsn.ditto.shared.model.PagingCommand
 import com.gngsn.ditto.testsupporter.AbstractTestContainerSupporter
 import io.mockk.MockKAnnotations
@@ -13,10 +14,10 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class GetArticleListUseCaseTest: AbstractTestContainerSupporter() {
+class GetArticleListUseCaseTest : AbstractTestContainerSupporter() {
 
     @MockK
-    lateinit var articlePersistencePort: ArticlePersistencePort
+    lateinit var articlePersistencePort: ReadArticleOutPort
 
     @InjectMockKs
     lateinit var getArticleListUseCase: GetArticleListUseCase
@@ -36,7 +37,7 @@ class GetArticleListUseCaseTest: AbstractTestContainerSupporter() {
         )
         every { articlePersistencePort.findAll(pagingCommand) } returns articleEntities
 
-        val list = getArticleListUseCase.execute(pagingCommand)
+        val list = getArticleListUseCase.get(pagingCommand)
 
         for ((i, article) in list.withIndex()) {
             assertEquals(articleEntities[i].content, article.content)
