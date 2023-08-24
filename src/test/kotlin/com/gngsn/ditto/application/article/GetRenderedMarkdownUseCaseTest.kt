@@ -15,22 +15,13 @@ class GetRenderedMarkdownUseCaseTest(
     @Autowired val renderToHtmlOutPort: RenderToHtmlOutPort,
     @Autowired val getRenderedMarkdownUseCase: GetRenderedMarkdownUseCase
 ) {
-
-//    @MockK
-//    lateinit var githubFeignAdapter: GithubFeignAdapter
-//
-//    @MockK
-//    lateinit var fileReaderAdapter: FileReaderAdapter
-
-//    @InjectMockKs
-//    lateinit var getArticleListFromFilesCase: GetArticleListFromFilesCase
-
+    
     @BeforeEach
     fun setUp() = MockKAnnotations.init(this)
 
     @Test
     fun render() {
-        val render = getRenderedMarkdownUseCase.render()
+        val render = getRenderedMarkdownUseCase.get("Design-By-Contract.md")
         println(render)
     }
 }

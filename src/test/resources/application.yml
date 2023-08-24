@@ -1,13 +1,13 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/ditto
+    url: jdbc:postgresql://localhost:5432/hex
     username: postgres
     password: postgres
 
   jpa:
     hibernate:
-      dialect: org.hibernate.dialect.PostgreSQL95Dialect
+      database-platform: org.hibernate.dialect.PostgreSQL94Dialect
       format_sql: true
       ddl-auto: update
 
