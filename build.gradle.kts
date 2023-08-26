@@ -33,11 +33,14 @@ dependencies {
     implementation("org.postgresql:postgresql")
 
     // querydsl
-    implementation ("com.querydsl:querydsl-jpa:$queryDslVersion:jakarta")
+    implementation("com.querydsl:querydsl-jpa:$queryDslVersion:jakarta")
     kapt("com.querydsl:querydsl-apt:$queryDslVersion:jakarta")
 
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+    // debugging
+    implementation("p6spy:p6spy:3.9.1")
 
     // Testing tools
     testImplementation(kotlin("test"))

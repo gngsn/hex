@@ -6,6 +6,7 @@ import com.gngsn.ditto.adapter.output.persistence.repository.ArticleMasterReposi
 import com.gngsn.ditto.adapter.output.persistence.repository.ArticleSlaveRepository
 import com.gngsn.ditto.domain.Article
 import com.gngsn.ditto.port.output.ReadArticleOutPort
+import com.gngsn.ditto.port.output.UpsertArticleOutPort
 import com.gngsn.ditto.port.output.WriteArticleOutPort
 import com.gngsn.ditto.shared.model.PagingCommand
 import com.gngsn.ditto.shared.support.Adapter
@@ -14,7 +15,7 @@ import com.gngsn.ditto.shared.support.Adapter
 class ArticlePersistenceAdapter(
     private val articleMasterRepository: ArticleMasterRepository,
     private val articleSlaveRepository: ArticleSlaveRepository
-) : ReadArticleOutPort, WriteArticleOutPort {
+) : ReadArticleOutPort, WriteArticleOutPort, UpsertArticleOutPort {
 
     override fun findAll(pagingCommand: PagingCommand): List<ArticleEntity> {
         return articleSlaveRepository.findAllByAuthorWithPaging(
@@ -25,6 +26,10 @@ class ArticlePersistenceAdapter(
     }
 
     override fun save(article: Article) {
+        articleMasterRepository.save(article.toEntity())
+    }
+
+    override fun upsert(article: Article) {
         articleMasterRepository.save(article.toEntity())
     }
 }
