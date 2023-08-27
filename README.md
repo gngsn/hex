@@ -1,4 +1,4 @@
-# Ditto
+# Hex
 
 ### Skill Set
 
