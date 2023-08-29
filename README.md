@@ -25,6 +25,7 @@ $ docker-compose up --detach
 
 ```bash
 $ docker exec -it <<container_id>> bash
+# psql -U <<user_id>>
 postgres=# CREATE DATABASE hex;
 ```
 

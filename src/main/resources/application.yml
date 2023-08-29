@@ -22,4 +22,4 @@ spring:
           github:
             url: https://api.github.com
             requestInterceptors:
-              - com.gngsn.ditto.adapter.output.interceptor.GithubRequestHeaderInterceptor
+              - com.gngsn.hex.adapter.output.interceptor.GithubRequestHeaderInterceptor

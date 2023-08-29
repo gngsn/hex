@@ -4,31 +4,33 @@ import com.gngsn.hex.adapter.output.persistence.entity.ArticleEntity
 import com.gngsn.hex.adapter.output.persistence.entity.QArticleEntity.articleEntity
 import com.gngsn.hex.adapter.output.persistence.repository.ArticleMasterRepository
 import com.gngsn.hex.adapter.output.persistence.repository.ArticleSlaveRepository
+import com.gngsn.hex.testsupporter.AbstractTestContainerSupporter
 import com.querydsl.jpa.impl.JPAQueryFactory
 import io.mockk.mockk
 import jakarta.persistence.EntityManager
+import jakarta.transaction.Transactional
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager
 import java.time.LocalDateTime
 
-
 @DataJpaTest
-class JpaQuerydslTest (
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+class JpaQuerydslTest(
     @Autowired private val testEntityManager: TestEntityManager
-){
-    private lateinit var entityManager: EntityManager
+) {
+    private val entityManager: EntityManager = testEntityManager.entityManager
     private lateinit var masterRepository: ArticleMasterRepository
     private lateinit var slaveRepository: ArticleSlaveRepository
 
     @BeforeEach
     fun setup() {
-        entityManager = testEntityManager.entityManager
         masterRepository = mockk()
         slaveRepository = mockk()
 
@@ -37,6 +39,7 @@ class JpaQuerydslTest (
     }
 
     @Test
+    @Transactional
     fun select_article() {
         val query = JPAQueryFactory(entityManager)
 
