@@ -55,6 +55,12 @@ tasks.test {
     useJUnitPlatform()
 }
 
+
 kotlin {
     jvmToolchain(17)
+    sourceSets.all {
+        languageSettings {
+            languageVersion = "2.0"
+        }
+    }
 }
