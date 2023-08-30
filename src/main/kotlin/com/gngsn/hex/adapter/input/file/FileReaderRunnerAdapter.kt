@@ -11,6 +11,6 @@ class FileReaderRunnerAdapter(
 ) : ApplicationRunner {
 
     override fun run(args: ApplicationArguments?) {
-        readRenderedMdFileInputPort.get("Design-By-Contract.md")
+        readRenderedMdFileInputPort.get("Testing-Style.md")
     }
 }
