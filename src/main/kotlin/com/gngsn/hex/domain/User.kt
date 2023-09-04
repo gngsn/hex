@@ -1,9 +1,9 @@
-package com.gngsn.hex.domain;
+package com.gngsn.hex.domain
 
 /**
  * User domain
  */
-data class User (
+data class User(
     val nickname: String,
     val name: String,
     val email: String,
