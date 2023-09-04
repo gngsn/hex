@@ -8,8 +8,8 @@ import com.gngsn.hex.domain.Article
 import com.gngsn.hex.port.output.ReadArticleOutPort
 import com.gngsn.hex.port.output.UpsertArticleOutPort
 import com.gngsn.hex.port.output.WriteArticleOutPort
-import com.gngsn.hex.shared.model.PagingCommand
 import com.gngsn.hex.shared.support.Adapter
+import org.springframework.data.domain.Pageable
 
 @Adapter
 class ArticlePersistenceAdapter(
@@ -17,11 +17,11 @@ class ArticlePersistenceAdapter(
     private val articleSlaveRepository: ArticleSlaveRepository
 ) : ReadArticleOutPort, WriteArticleOutPort, UpsertArticleOutPort {
 
-    override fun findAll(pagingCommand: PagingCommand): List<ArticleEntity> {
+    override fun findAll(pageable: Pageable): List<ArticleEntity> {
         return articleSlaveRepository.findAllByAuthorWithPaging(
             "",
-            pagingCommand.page * pagingCommand.size,
-            pagingCommand.size
+            pageable.offset,
+            pageable.pageSize
         )
     }
 

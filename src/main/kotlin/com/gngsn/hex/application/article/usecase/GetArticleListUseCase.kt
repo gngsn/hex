@@ -4,15 +4,15 @@ import com.gngsn.hex.adapter.extension.toVO
 import com.gngsn.hex.domain.Article
 import com.gngsn.hex.port.input.GetArticleInputPort
 import com.gngsn.hex.port.output.ReadArticleOutPort
-import com.gngsn.hex.shared.model.PagingCommand
 import com.gngsn.hex.shared.support.UseCase
+import org.springframework.data.domain.Pageable
 
 @UseCase
 class GetArticleListUseCase(
     val articlePersistencePort: ReadArticleOutPort
 ) : GetArticleInputPort {
-    
-    override fun get(pagingCommand: PagingCommand): List<Article> {
-        return articlePersistencePort.findAll(pagingCommand).map { it.toVO() }
+
+    override fun get(pageable: Pageable): List<Article> {
+        return articlePersistencePort.findAll(pageable).map { it.toVO() }
     }
 }

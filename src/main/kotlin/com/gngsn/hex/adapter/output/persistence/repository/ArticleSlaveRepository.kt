@@ -23,11 +23,11 @@ class ArticleSlaveRepository(
             .fetch()
     }
 
-    fun findAllByAuthorWithPaging(author: String, offset: Long, limit: Long): List<ArticleEntity> {
+    fun findAllByAuthorWithPaging(author: String, offset: Long, limit: Int): List<ArticleEntity> {
         return jpaQueryFactory
             .selectFrom(articleEntity)
             .offset(offset)
-            .limit(limit)
+            .limit(limit.toLong())
             .where(articleEntity.author.eq(author))
             .fetch()
     }
