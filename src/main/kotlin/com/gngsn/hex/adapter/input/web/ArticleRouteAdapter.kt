@@ -1,11 +1,11 @@
 package com.gngsn.hex.adapter.input.web
 
-import com.gngsn.hex.application.article.usecase.GetArticleListUseCase
-import com.gngsn.hex.application.article.usecase.SaveArticleUseCase
 import com.gngsn.hex.domain.Article
-import com.gngsn.hex.shared.model.PagingCommand
+import com.gngsn.hex.port.input.GetArticleInputPort
+import com.gngsn.hex.port.input.SaveArticleInputPort
 import com.gngsn.hex.shared.support.Adapter
 import jakarta.validation.Valid
+import org.springframework.data.domain.Pageable
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/blog")
 class ArticleRouteAdapter(
-    val saveArticleUseCase: SaveArticleUseCase,
-    val getArticleListUseCase: GetArticleListUseCase
+    val getArticleInputPort: GetArticleInputPort,
+    val saveArticleInputPort: SaveArticleInputPort
 ) {
 
     @GetMapping
-    fun get(pagingCommand: PagingCommand): ResponseEntity<List<Article>> {
-        return ResponseEntity.ok(getArticleListUseCase.get(pagingCommand))
+    fun get(pageable: Pageable): ResponseEntity<List<Article>> {
+        return ResponseEntity.ok(getArticleInputPort.get(pageable))
     }
 
     @PostMapping("article")
     fun post(@Valid @RequestBody article: Article): ResponseEntity<String> {
-        saveArticleUseCase.post(article)
+        saveArticleInputPort.post(article)
         return ResponseEntity.ok("The request successes")
     }
 }
