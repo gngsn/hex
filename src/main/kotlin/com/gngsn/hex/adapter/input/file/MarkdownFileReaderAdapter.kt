@@ -1,11 +1,11 @@
-package com.gngsn.hex.adapter.output.persistence
+package com.gngsn.hex.adapter.input.file
 
-import com.gngsn.hex.port.output.ReadFileOutputPort
+import com.gngsn.hex.port.output.ReadFileInputPort
 import com.gngsn.hex.shared.support.Adapter
 import java.io.File
 
 @Adapter
-class FileReaderAdapter : ReadFileOutputPort {
+class MarkdownFileReaderAdapter : ReadFileInputPort {
 
     override fun read(): List<String> =
         File("data/").walk()

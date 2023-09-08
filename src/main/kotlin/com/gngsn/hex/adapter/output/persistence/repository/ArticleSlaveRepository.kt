@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository
 class ArticleSlaveRepository(
     private val jpaQueryFactory: JPAQueryFactory
 ) {
+
     fun find(author: String): ArticleEntity? {
         return jpaQueryFactory
             .selectFrom(articleEntity)

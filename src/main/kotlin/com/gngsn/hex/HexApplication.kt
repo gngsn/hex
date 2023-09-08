@@ -6,8 +6,8 @@ import org.springframework.context.annotation.PropertySource
 
 @SpringBootApplication
 @PropertySource("classpath:secret.yml")
-class Application
+class HexApplication
 
 fun main(args: Array<String>) {
-    runApplication<Application>(*args)
+    runApplication<HexApplication>(*args)
 }

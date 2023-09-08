@@ -1,5 +1,5 @@
 package com.gngsn.hex.port.output
 
-interface ReadFileOutputPort {
+interface ReadFileInputPort {
     fun read(): List<String>
 }

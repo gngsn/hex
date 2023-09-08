@@ -29,6 +29,9 @@ dependencies {
     implementation(platform("org.springframework.cloud:spring-cloud-dependencies:2022.0.1"))
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.0.1")
 
+    // OCR
+    implementation("net.sourceforge.tess4j:tess4j:5.8.0")
+
     // Database
     implementation("org.postgresql:postgresql")
 

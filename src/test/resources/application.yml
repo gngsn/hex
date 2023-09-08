@@ -1,6 +1,6 @@
 spring:
   datasource:
-    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/hex
     username: postgres
     password: postgres
