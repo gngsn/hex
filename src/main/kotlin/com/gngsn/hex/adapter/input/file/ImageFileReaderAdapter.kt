@@ -8,6 +8,6 @@ import java.io.File
 class ImageFileReaderAdapter : GetFileInputPort {
 
     override fun get(): File {
-        TODO("Not yet implemented")
+        return File("data/ocr-test.png")
     }
 }

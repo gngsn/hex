@@ -5,6 +5,6 @@ package com.gngsn.hex.domain
  */
 data class Article(
     val title: String,
-    val content: String,
+    var content: String,
     val author: String,
 )

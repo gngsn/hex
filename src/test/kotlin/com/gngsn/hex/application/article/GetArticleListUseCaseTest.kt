@@ -13,6 +13,7 @@ import io.mockk.mockkClass
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.springframework.data.domain.Pageable
 
 class GetArticleListUseCaseTest : AbstractTestContainerSupporter() {
 
@@ -35,9 +36,9 @@ class GetArticleListUseCaseTest : AbstractTestContainerSupporter() {
             mockkClass(ArticleEntity::class),
             mockkClass(ArticleEntity::class)
         )
-        every { articlePersistencePort.findAll(pagingCommand) } returns articleEntities
+        every { articlePersistencePort.findAll(Pageable.ofSize(10)) } returns articleEntities
 
-        val list = getArticleListUseCase.get(pagingCommand)
+        val list = getArticleListUseCase.get(Pageable.ofSize(10))
 
         for ((i, article) in list.withIndex()) {
             assertEquals(articleEntities[i].content, article.content)
