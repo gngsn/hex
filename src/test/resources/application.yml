@@ -23,7 +23,3 @@ spring:
             url: https://api.github.com
             requestInterceptors:
               - com.gngsn.hex.adapter.output.interceptor.GithubRequestHeaderInterceptor
-
-logging:
-  level:
-    p6spy: info
