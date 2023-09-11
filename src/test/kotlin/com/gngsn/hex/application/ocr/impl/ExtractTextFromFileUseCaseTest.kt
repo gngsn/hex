@@ -6,6 +6,7 @@ import net.sourceforge.tess4j.Tesseract
 import org.junit.jupiter.api.Test
 
 class ExtractTextFromFileUseCaseTest {
+
     @Test
     fun readAndWrite() {
         ExtractTextFromFileUseCase(
