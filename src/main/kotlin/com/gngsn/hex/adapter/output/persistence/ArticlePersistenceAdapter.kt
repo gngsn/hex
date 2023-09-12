@@ -1,7 +1,7 @@
 package com.gngsn.hex.adapter.output.persistence
 
 import com.gngsn.hex.adapter.extension.toEntity
-import com.gngsn.hex.adapter.output.persistence.entity.ArticleEntity
+import com.gngsn.hex.adapter.extension.toVO
 import com.gngsn.hex.adapter.output.persistence.repository.ArticleMasterRepository
 import com.gngsn.hex.adapter.output.persistence.repository.ArticleSlaveRepository
 import com.gngsn.hex.domain.Article
@@ -17,12 +17,12 @@ class ArticlePersistenceAdapter(
     private val articleSlaveRepository: ArticleSlaveRepository
 ) : ReadArticleOutPort, WriteArticleOutPort, UpsertArticleOutPort {
 
-    override fun findAll(pageable: Pageable): List<ArticleEntity> {
+    override fun findAll(pageable: Pageable): List<Article> {
         return articleSlaveRepository.findAllByAuthorWithPaging(
             "",
             pageable.offset,
             pageable.pageSize
-        )
+        ).map { it.toVO() }
     }
 
     override fun save(article: Article) {
