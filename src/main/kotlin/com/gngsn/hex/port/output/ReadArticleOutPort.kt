@@ -4,5 +4,5 @@ import com.gngsn.hex.domain.Article
 import org.springframework.data.domain.Pageable
 
 interface ReadArticleOutPort {
-    fun findAll(pageable: Pageable): List<Article>
+    fun findAll(author: String, pageable: Pageable): List<Article>
 }

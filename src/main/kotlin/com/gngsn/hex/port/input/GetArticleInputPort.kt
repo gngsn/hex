@@ -5,5 +5,5 @@ import org.springframework.data.domain.Pageable
 
 interface GetArticleInputPort {
 
-    fun get(pageable: Pageable): List<Article>
+    fun get(author: String, pageable: Pageable): List<Article>
 }

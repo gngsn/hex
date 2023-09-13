@@ -11,7 +11,7 @@ class GetArticleListUseCase(
     val articlePersistencePort: ReadArticleOutPort
 ) : GetArticleInputPort {
 
-    override fun get(pageable: Pageable): List<Article> {
-        return articlePersistencePort.findAll(pageable)
+    override fun get(author: String, pageable: Pageable): List<Article> {
+        return articlePersistencePort.findAll(author, pageable)
     }
 }

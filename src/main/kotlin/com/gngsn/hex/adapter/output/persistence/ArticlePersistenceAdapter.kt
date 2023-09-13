@@ -17,7 +17,7 @@ class ArticlePersistenceAdapter(
     private val articleSlaveRepository: ArticleSlaveRepository
 ) : ReadArticleOutPort, WriteArticleOutPort, UpsertArticleOutPort {
 
-    override fun findAll(pageable: Pageable): List<Article> {
+    override fun findAll(author: String, pageable: Pageable): List<Article> {
         return articleSlaveRepository.findAllByAuthorWithPaging(
             "",
             pageable.offset,

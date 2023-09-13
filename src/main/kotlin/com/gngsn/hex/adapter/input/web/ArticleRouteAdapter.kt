@@ -18,8 +18,8 @@ class ArticleRouteAdapter(
 ) {
 
     @GetMapping
-    fun get(pageable: Pageable): ResponseEntity<List<Article>> {
-        return ResponseEntity.ok(getArticleInputPort.get(pageable))
+    fun get(author: String, pageable: Pageable): ResponseEntity<List<Article>> {
+        return ResponseEntity.ok(getArticleInputPort.get(author, pageable))
     }
 
     @PostMapping("article")
