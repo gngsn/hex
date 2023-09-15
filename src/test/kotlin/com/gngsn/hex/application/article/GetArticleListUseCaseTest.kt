@@ -1,9 +1,8 @@
 package com.gngsn.hex.application.article
 
-import com.gngsn.hex.adapter.output.persistence.entity.ArticleEntity
 import com.gngsn.hex.application.article.usecase.GetArticleListUseCase
+import com.gngsn.hex.domain.Article
 import com.gngsn.hex.port.output.ReadArticleOutPort
-import com.gngsn.hex.shared.model.PagingCommand
 import com.gngsn.hex.testsupporter.AbstractTestContainerSupporter
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -28,20 +27,20 @@ class GetArticleListUseCaseTest : AbstractTestContainerSupporter() {
 
     @Test
     fun shouldGetCustomers() {
-        val pagingCommand = PagingCommand(0, 10)
-        val articleEntities = listOf(
-            mockkClass(ArticleEntity::class),
-            mockkClass(ArticleEntity::class),
-            mockkClass(ArticleEntity::class),
-            mockkClass(ArticleEntity::class),
-            mockkClass(ArticleEntity::class)
+        val paging = Pageable.ofSize(10)
+        val articles = listOf(
+            mockkClass(Article::class),
+            mockkClass(Article::class),
+            mockkClass(Article::class),
+            mockkClass(Article::class),
+            mockkClass(Article::class)
         )
-        every { articlePersistencePort.findAll(Pageable.ofSize(10)) } returns articleEntities
+        every { articlePersistencePort.findAll("sunny", paging) } returns articles
 
-        val list = getArticleListUseCase.get(Pageable.ofSize(10))
+        val list = getArticleListUseCase.get("sunny", paging)
 
         for ((i, article) in list.withIndex()) {
-            assertEquals(articleEntities[i].content, article.content)
+            assertEquals(articles[i].content, article.content)
         }
     }
 }
