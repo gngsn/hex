@@ -18,4 +18,13 @@ class ExtractTextFromFileUseCaseTest {
             tesseract
         ).readAndWrite()
     }
+
+    @Test
+    fun aa() {
+        val str1 = "test"
+        val str2 = "test"
+        val str3 = java.lang.String("test")
+
+        println(str1.equals(str3))
+    }
 }
