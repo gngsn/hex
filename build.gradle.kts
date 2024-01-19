@@ -57,7 +57,7 @@ tasks.test {
 
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
     sourceSets.all {
         languageSettings {
             languageVersion = "2.0"
