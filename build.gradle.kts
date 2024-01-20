@@ -42,6 +42,9 @@ dependencies {
     // debugging
     implementation("p6spy:p6spy:3.9.1")
 
+    // redis
+    implementation('org.springframework.boot:spring-boot-starter-data-redis')
+    
     // Testing tools
     testImplementation(kotlin("test"))
     testImplementation("org.springframework.boot:spring-boot-starter-test")
